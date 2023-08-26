@@ -22,7 +22,10 @@ class UpdateMessageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'expediteurID' => 'required|exists:users,id',
+            'destinataireID' => 'required|exists:users,id',
+            'Message' => 'required|string',
+            'date' => 'required|date',
         ];
     }
 }

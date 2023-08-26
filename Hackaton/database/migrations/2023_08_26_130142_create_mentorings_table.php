@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mentorings', function (Blueprint $table) {
-            $table->id('mentoringId');
+            $table->id();
             $table->unsignedBigInteger('entrepriseID');
             $table->text('description');
-            $table->unique(['apprenantId', 'mentoringId'], 'uq_apprenant_mentoring');
             $table->string('creneauHoraire', 255);
             $table->foreign('entrepriseId')->references('id')->on('Entreprises')->onDelete('cascade');
             $table->timestamps();
@@ -27,8 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Mentoring', function (Blueprint $table) {
-            $table->dropUnique('uq_apprenant_mentoring');
-        });
+        Schema::dropIfExists('mentorings');
     }
 };

@@ -22,7 +22,9 @@ class UpdateMentoringRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'entrepriseID' => 'required|exists:entreprises,id',
+            'description' => 'required|string',
+            'creneauHoraire' => 'required|string|max:255',
         ];
     }
 }

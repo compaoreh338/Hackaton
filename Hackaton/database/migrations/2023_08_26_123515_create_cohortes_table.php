@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cohortes', function (Blueprint $table) {
-            $table->id('cohorteId');
+            $table->id();
             $table->string('name');
             $table->unsignedBigInteger('domaineId')->nullable();
             $table->foreign('domaineId')->references('id')->on('Domaines')->onDelete('cascade');

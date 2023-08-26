@@ -22,7 +22,10 @@ class StoreArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'titre' => 'required|string|max:255',
+            'contenu' => 'required|string',
+            'date' => 'required|date',
+            'entrepriseId' => 'required|exists:entreprises,id',
         ];
     }
 }

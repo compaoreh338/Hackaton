@@ -22,7 +22,10 @@ class UpdateEvenementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'titre' => 'required|string|max:255',
+            'description' => 'required|string',
+            'date' => 'required|date',
+            'lieu' => 'required|string|max:255',
         ];
     }
 }

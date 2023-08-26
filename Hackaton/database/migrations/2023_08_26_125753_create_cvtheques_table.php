@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cvtheques', function (Blueprint $table) {
-            $table->id('cvId');
+            $table->id();
             $table->unsignedBigInteger('apprenantID');
             $table->string('lien', 255);
-            $table->unique(['apprenantId', 'cvId'], 'uq_apprenant_cv');
+            $table->unique(['apprenantId', 'id'], 'uq_apprenant_cv');
             $table->foreign('apprenantID')->references('id')->on('Apprenants')->onDelete('cascade');
             $table->timestamps();
         });

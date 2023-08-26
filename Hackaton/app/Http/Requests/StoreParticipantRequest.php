@@ -22,7 +22,8 @@ class StoreParticipantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'evenementId' => 'required|exists:evenements,id',
+            'apprenantId' => 'required|exists:apprenants,id',
         ];
     }
 }
