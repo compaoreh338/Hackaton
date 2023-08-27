@@ -11,7 +11,7 @@ class StoreEntrepriseRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,6 @@ class StoreEntrepriseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userId' => 'required|exists:users,id',
             'name' => 'required|string|max:255',
             'activite' => 'required|string|max:255',
         ];

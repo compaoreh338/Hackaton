@@ -17,7 +17,8 @@ class EntrepriseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'activite' => $this->faker->word,
         ];
     }
 }

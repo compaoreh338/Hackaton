@@ -5,62 +5,59 @@ namespace App\Http\Controllers;
 use App\Models\Entreprise;
 use App\Http\Requests\StoreEntrepriseRequest;
 use App\Http\Requests\UpdateEntrepriseRequest;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class EntrepriseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function list(Request $request): View
     {
-        //
+
+        $entreprises = entreprise::all();
+        return view('entreprise.list');
+    }
+    public function new(Request $request): View
+    {
+
+        return view('entreprise.new');
+    }
+    public function create(StoreentrepriseRequest $request)
+    {
+
+        $entreprise = new Entreprise([
+
+            'name' => $request->input('name'),
+
+        ]);
+
+        $entreprise->save();
+        return redirect()->route('entreprise.list');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function edit(Request $request, int $id): View
     {
-        //
-    }
+        $entreprise = Entreprise::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreEntrepriseRequest $request)
-    {
-        //
+        return view('entreprise.edit', compact('entreprise'));
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Entreprise $entreprise)
+    public function update(UpdateentrepriseRequest $request, int $id)
     {
-        //
+        $entreprise = Entreprise::findOrFail($id);
+
+        $entreprise->update([
+            'name' => $request->name,
+
+        ]);
+        $entreprise->save();
+
+        return redirect()->route('entreprise.list');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Entreprise $entreprise)
+    public function destroy($id)
     {
-        //
-    }
+        $entreprise = Entreprise::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateEntrepriseRequest $request, Entreprise $entreprise)
-    {
-        //
-    }
+        $entreprise->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Entreprise $entreprise)
-    {
-        //
+        return redirect()->route('entreprise.list')->with('success', 'entreprise Deleted');;
     }
 }

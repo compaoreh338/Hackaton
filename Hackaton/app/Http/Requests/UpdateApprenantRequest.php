@@ -11,7 +11,7 @@ class UpdateApprenantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,12 @@ class UpdateApprenantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userId' => 'required|exists:users,id',
+
             'name' => 'required|string',
             'email' => 'required|email|unique:apprenants,email',
             'portfolio' => 'nullable|string',
             'videoDemo' => 'nullable|string',
-            'cohorteId' => 'required|exists:cohortes,id',
-            'domaineId' => 'required|exists:domaines,id',
+
         ];
     }
 }

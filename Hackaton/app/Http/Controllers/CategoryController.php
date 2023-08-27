@@ -12,6 +12,9 @@ class CategoryController extends Controller
 {
     public function list(Request $request): View
     {
+
+        $categories = Category::all();
+        return view('category.list');
     }
     public function new(Request $request): View
     {

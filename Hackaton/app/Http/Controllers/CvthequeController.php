@@ -5,62 +5,59 @@ namespace App\Http\Controllers;
 use App\Models\Cvtheque;
 use App\Http\Requests\StoreCvthequeRequest;
 use App\Http\Requests\UpdateCvthequeRequest;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class CvthequeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function list(Request $request): View
     {
-        //
+
+        $cvtheques = Cvtheque::all();
+        return view('cvtheque.list');
+    }
+    public function new(Request $request): View
+    {
+
+        return view('cvtheque.new');
+    }
+    public function create(StorecvthequeRequest $request)
+    {
+
+        $cvtheque = new cvtheque([
+
+            'name' => $request->input('name'),
+
+        ]);
+
+        $cvtheque->save();
+        return redirect()->route('cvtheque.list');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function edit(Request $request, int $id): View
     {
-        //
-    }
+        $cvtheque = Cvtheque::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreCvthequeRequest $request)
-    {
-        //
+        return view('cvtheque.edit', compact('cvtheque'));
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cvtheque $cvtheque)
+    public function update(UpdatecvthequeRequest $request, int $id)
     {
-        //
+        $cvtheque = Cvtheque::findOrFail($id);
+
+        $cvtheque->update([
+            'name' => $request->name,
+
+        ]);
+        $cvtheque->save();
+
+        return redirect()->route('cvtheque.list');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cvtheque $cvtheque)
+    public function destroy($id)
     {
-        //
-    }
+        $cvtheque = Cvtheque::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCvthequeRequest $request, Cvtheque $cvtheque)
-    {
-        //
-    }
+        $cvtheque->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Cvtheque $cvtheque)
-    {
-        //
+        return redirect()->route('cvtheque.list')->with('success', 'cvtheque Deleted');;
     }
 }

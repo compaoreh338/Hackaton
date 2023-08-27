@@ -17,7 +17,12 @@ class ApprenantFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'portfolio' => $this->faker->optional()->url,
+            'videoDemo' => $this->faker->optional()->url,
+
+
         ];
     }
 }

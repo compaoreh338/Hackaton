@@ -5,62 +5,62 @@ namespace App\Http\Controllers;
 use App\Models\Apprenant;
 use App\Http\Requests\StoreApprenantRequest;
 use App\Http\Requests\UpdateApprenantRequest;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ApprenantController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function list(Request $request): View
     {
-        //
+
+        $apprenants = Apprenant::all();
+        return view('apprenant.list');
+    }
+    public function new(Request $request): View
+    {
+
+        return view('apprenant.new');
+    }
+    public function create(StoreapprenantRequest $request)
+    {
+
+        $apprenant = new Apprenant([
+
+            'name' => $request->input('name'),
+
+        ]);
+
+        $apprenant->save();
+        return redirect()->route('apprenant.list');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function edit(Request $request, int $id): View
     {
-        //
-    }
+        $apprenant = Apprenant::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreApprenantRequest $request)
-    {
-        //
+        return view('apprenant.edit', compact('apprenant'));
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Apprenant $apprenant)
+    public function update(UpdateapprenantRequest $request, int $id)
     {
-        //
+        $apprenant = Apprenant::findOrFail($id);
+
+        $apprenant->update([
+            'name' => $request->name,
+
+        ]);
+        $apprenant->save();
+
+        return redirect()->route('apprenant.list');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Apprenant $apprenant)
+    public function destroy($id)
     {
-        //
-    }
+        $apprenant = Apprenant::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateApprenantRequest $request, Apprenant $apprenant)
-    {
-        //
-    }
+        $apprenant->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Apprenant $apprenant)
-    {
-        //
+        return redirect()->route('apprenant.list')->with('success', 'Apprenant Deleted');;
     }
 }
