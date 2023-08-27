@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -23,12 +24,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
     ];
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, '@yourdomain.com') && $this->hasVerifiedEmail();
+        return $this->isAdmin() && str_ends_with($this->email, 'admin@example.com') && $this->hasVerifiedEmail();
     }
 
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin'; // Assurez-vous que ceci reflète la logique de vérification des rôles dans votre modèle User
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
