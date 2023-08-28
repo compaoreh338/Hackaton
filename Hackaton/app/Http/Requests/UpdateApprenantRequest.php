@@ -22,12 +22,10 @@ class UpdateApprenantRequest extends FormRequest
     public function rules(): array
     {
         return [
-
             'name' => 'required|string',
             'email' => 'required|email|unique:apprenants,email',
             'portfolio' => 'nullable|string',
             'videoDemo' => 'nullable|string',
-
         ];
     }
 }

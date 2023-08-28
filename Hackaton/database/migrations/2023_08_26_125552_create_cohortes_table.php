@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-<<<<<<< HEAD
-            $table->id();
-=======
-            $table->id('categoryId');
->>>>>>> 01fd98df2fa14da63519bda6291e0feb271b3247
-            $table->string('name', 255);
+        Schema::create('cohortes', function (Blueprint $table) {
+            $table->id('cohorteId');
+            $table->string('name');
+            $table->unsignedBigInteger('domaineId')->nullable();
+            $table->foreign('domaineId')->references('id')->on('Domaines')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('cohortes');
     }
 };

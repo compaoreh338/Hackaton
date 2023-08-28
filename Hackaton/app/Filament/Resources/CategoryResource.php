@@ -34,16 +34,21 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+
                 Tables\Columns\TextColumn::make('name')->label(__('Name'))
                     ->searchable()
                     ->sortable(),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
                 Tables\Actions\DeleteAction::make()->label(__('Delete')),
+
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -69,5 +74,9 @@ class CategoryResource extends Resource
             'create' => Pages\CreateCategory::route('/create'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
+
     }
+
+    }    
+
 }
