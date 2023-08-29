@@ -1,140 +1,789 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-        <!-- Styles -->
-        <style>
-            /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Figtree, sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.relative{position:relative}.mx-auto{margin-left:auto;margin-right:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.ml-4{margin-left:1rem}.mt-16{margin-top:4rem}.mt-6{margin-top:1.5rem}.mt-4{margin-top:1rem}.-mt-px{margin-top:-1px}.mr-1{margin-right:0.25rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-16{height:4rem}.h-7{height:1.75rem}.h-6{height:1.5rem}.h-5{height:1.25rem}.min-h-screen{min-height:100vh}.w-auto{width:auto}.w-16{width:4rem}.w-7{width:1.75rem}.w-6{width:1.5rem}.w-5{width:1.25rem}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-4{gap:1rem}.self-center{align-self:center}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity))}.bg-dots-darker{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")}.from-gray-700\/50{--tw-gradient-from:rgb(55 65 81 / 0.5);--tw-gradient-to:rgb(55 65 81 / 0);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0);--tw-gradient-stops:var(--tw-gradient-from), transparent, var(--tw-gradient-to)}.bg-center{background-position:center}.stroke-red-500{stroke:#ef4444}.stroke-gray-400{stroke:#9ca3af}.p-6{padding:1.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.text-center{text-align:center}.text-right{text-align:right}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-gray-500\/20{--tw-shadow-color:rgb(107 114 128 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.selection\:bg-red-500 *::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.selection\:bg-red-500::selection{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-gray-900:hover{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity))}.focus\:rounded-sm:focus{border-radius:0.125rem}.focus\:outline:focus{outline-style:solid}.focus\:outline-2:focus{outline-width:2px}.focus\:outline-red-500:focus{outline-color:#ef4444}.group:hover .group-hover\:stroke-gray-600{stroke:#4b5563}.z-10{z-index: 10}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (prefers-color-scheme: dark){.dark\:bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity))}.dark\:bg-gray-800\/50{background-color:rgb(31 41 55 / 0.5)}.dark\:bg-red-800\/20{background-color:rgb(153 27 27 / 0.2)}.dark\:bg-dots-lighter{background-image:url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")}.dark\:bg-gradient-to-bl{background-image:linear-gradient(to bottom left, var(--tw-gradient-stops))}.dark\:stroke-gray-600{stroke:#4b5563}.dark\:text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity))}.dark\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.dark\:shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.dark\:ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.dark\:ring-inset{--tw-ring-inset:inset}.dark\:ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.dark\:hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.group:hover .dark\:group-hover\:stroke-gray-400{stroke:#9ca3af}}@media (min-width: 640px){.sm\:fixed{position:fixed}.sm\:top-0{top:0px}.sm\:right-0{right:0px}.sm\:ml-0{margin-left:0px}.sm\:flex{display:flex}.sm\:items-center{align-items:center}.sm\:justify-center{justify-content:center}.sm\:justify-between{justify-content:space-between}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 1024px){.lg\:gap-8{gap:2rem}.lg\:p-8{padding:2rem}}
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-            @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-                <div class="flex justify-center">
-                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
-                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556C25.4955 7.26643 25.5292 7.29759 25.5653 7.32626C25.5977 7.35119 25.6339 7.37362 25.6625 7.40104C25.6974 7.43719 25.7224 7.47832 25.7523 7.51821C25.7735 7.54812 25.8021 7.5743 25.8196 7.6067C25.8483 7.65656 25.8645 7.70891 25.8844 7.76126C25.8944 7.78993 25.9118 7.8161 25.9193 7.84602C25.9423 7.93096 25.954 8.01853 25.9542 8.10652V33.7317L35.9355 27.9844V14.8846C35.9355 14.7973 35.948 14.7088 35.9704 14.6253C35.9792 14.5954 35.9954 14.5692 36.0053 14.5405C36.0253 14.4882 36.0427 14.4346 36.0702 14.386C36.0888 14.3536 36.1163 14.3274 36.1375 14.2975C36.1674 14.2576 36.1923 14.2165 36.2272 14.1816C36.2559 14.1529 36.292 14.1317 36.3244 14.1068C36.3618 14.0769 36.3942 14.0445 36.4341 14.0208L48.4147 7.12434C48.5663 7.03694 48.7383 6.99094 48.9133 6.99094C49.0883 6.99094 49.2602 7.03694 49.4118 7.12434L61.3899 14.0208C61.4323 14.0457 61.4647 14.0769 61.5021 14.1055C61.5333 14.1305 61.5694 14.1529 61.5981 14.1803C61.633 14.2165 61.6579 14.2576 61.6878 14.2975C61.7103 14.3274 61.7377 14.3536 61.7551 14.386C61.7838 14.4346 61.8 14.4882 61.8199 14.5405C61.8312 14.5692 61.8474 14.5954 61.8548 14.6253ZM59.893 27.9844V16.6121L55.7013 19.0252L49.9104 22.3593V33.7317L59.8942 27.9844H59.893ZM47.9149 48.5566V37.1768L42.2187 40.4299L25.953 49.7133V61.2003L47.9149 48.5566ZM1.99677 9.83281V48.5566L23.9562 61.199V49.7145L12.4841 43.2219L12.4804 43.2194L12.4754 43.2169C12.4368 43.1945 12.4044 43.1621 12.3682 43.1347C12.3371 43.1097 12.3009 43.0898 12.2735 43.0624L12.271 43.0586C12.2386 43.0275 12.2162 42.9888 12.1887 42.9539C12.1638 42.9203 12.1339 42.8916 12.114 42.8567L12.1127 42.853C12.0903 42.8156 12.0766 42.7707 12.0604 42.7283C12.0442 42.6909 12.023 42.656 12.013 42.6161C12.0005 42.5688 11.998 42.5177 11.9931 42.4691C11.9881 42.4317 11.9781 42.3943 11.9781 42.3569V15.5801L6.18848 12.2446L1.99677 9.83281ZM12.9777 2.36177L2.99764 8.10652L12.9752 13.8513L22.9541 8.10527L12.9752 2.36177H12.9777ZM18.1678 38.2138L23.9574 34.8809V9.83281L19.7657 12.2459L13.9749 15.5801V40.6281L18.1678 38.2138ZM48.9133 9.14105L38.9344 14.8858L48.9133 20.6305L58.8909 14.8846L48.9133 9.14105ZM47.9149 22.3593L42.124 19.0252L37.9323 16.6121V27.9844L43.7219 31.3174L47.9149 33.7317V22.3593ZM24.9533 47.987L39.59 39.631L46.9065 35.4555L36.9352 29.7145L25.4544 36.3242L14.9907 42.3482L24.9533 47.987Z" fill="#FF2D20"/>
-                    </svg>
-                </div>
 
-                <div class="mt-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+        media="print" onload="this.media='all'">
+
+    <link rel="stylesheet" media="screen"
+        href="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/common/ui_kit-1cda4ddd63b6ab783c6d8e70a628149c57218af2494083a374f00238a3ef02d4.css" />
+
+    <link rel="stylesheet" media="screen"
+        href="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/frontoffice/index-00690d1adc208aeb3afa0175f021e92bced60a43f63cfc14703a88c0f81cad3c.css" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="app-Body jt-Body">
+    <div class="app-Body__wrapper hp-Layout" data-testid="app-Body__wrapper">
+        <header class="app-Header js-Header app-Header--sticky" role="banner">
+
+            <div class="app-Header__wrapper js-Header-wrapper">
+                <!-- logo oif -->
+
+
+                <!-- premier navbar -->
+                <div class="app-Header__topNav">
+                    <div class="app-SubHeader">
+
+                        <ul class="app-SubHeader__nav">
+
+
+                            <li class="app-SubHeader__item app-SubHeader__item--active">
+                                <a class="app-SubHeader__link app-SubHeader__link--active"
+                                    href="{{ route('welcome') }}">
+                                    Acceuil
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        class="jds-Icon jds-Icon--medium app-SubHeader__linkIcon">
+                                        <path
+                                            d="M14.7071 5.29289C14.3166 4.90237 13.6834 4.90237 13.2929 5.29289C12.9024 5.68342 12.9024 6.31658 13.2929 6.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L13.2929 17.2929C12.9024 17.6834 12.9024 18.3166 13.2929 18.7071C13.6834 19.0976 14.3166 19.0976 14.7071 18.7071L20.7071 12.7071C21.0976 12.3166 21.0976 11.6834 20.7071 11.2929L14.7071 5.29289Z" />
                                     </svg>
-                                </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+                                </a>
+                            </li>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                            <li class="app-SubHeader__item">
+                                <a class="app-SubHeader__link" href="{{ route('apprenant') }}">
+                                    Apprenants
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        class="jds-Icon jds-Icon--medium app-SubHeader__linkIcon">
+                                        <path
+                                            d="M14.7071 5.29289C14.3166 4.90237 13.6834 4.90237 13.2929 5.29289C12.9024 5.68342 12.9024 6.31658 13.2929 6.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L13.2929 17.2929C12.9024 17.6834 12.9024 18.3166 13.2929 18.7071C13.6834 19.0976 14.3166 19.0976 14.7071 18.7071L20.7071 12.7071C21.0976 12.3166 21.0976 11.6834 20.7071 11.2929L14.7071 5.29289Z" />
                                     </svg>
-                                </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
+                                </a>
+                            </li>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                            <li class="app-SubHeader__item">
+                                <a class="app-SubHeader__link" href="{{ route('recruteur') }}">
+                                    Recruteurs
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        class="jds-Icon jds-Icon--medium app-SubHeader__linkIcon">
+                                        <path
+                                            d="M14.7071 5.29289C14.3166 4.90237 13.6834 4.90237 13.2929 5.29289C12.9024 5.68342 12.9024 6.31658 13.2929 6.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L13.2929 17.2929C12.9024 17.6834 12.9024 18.3166 13.2929 18.7071C13.6834 19.0976 14.3166 19.0976 14.7071 18.7071L20.7071 12.7071C21.0976 12.3166 21.0976 11.6834 20.7071 11.2929L14.7071 5.29289Z" />
                                     </svg>
-                                </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
-
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </p>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                            </svg>
-                        </a>
-
-                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                            <div>
-                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
+                                </a>
+                            </li>
+                            <li class="app-SubHeader__item">
+                                <a class="app-SubHeader__link" href="{{ route('service') }}">
+                                    Services Carrières
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        class="jds-Icon jds-Icon--medium app-SubHeader__linkIcon">
+                                        <path
+                                            d="M14.7071 5.29289C14.3166 4.90237 13.6834 4.90237 13.2929 5.29289C12.9024 5.68342 12.9024 6.31658 13.2929 6.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L13.2929 17.2929C12.9024 17.6834 12.9024 18.3166 13.2929 18.7071C13.6834 19.0976 14.3166 19.0976 14.7071 18.7071L20.7071 12.7071C21.0976 12.3166 21.0976 11.6834 20.7071 11.2929L14.7071 5.29289Z" />
                                     </svg>
-                                </div>
 
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
+                                </a>
+                            </li>
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
-                                </p>
-                            </div>
-                        </div>
+                        </ul>
                     </div>
+
                 </div>
 
-                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                        <div class="flex items-center gap-4">
-                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                                Sponsor
+                <!-- deuxieme navbar avec logo et onglet -->
+                <div class="app-Header__primaryNav">
+                    <div class="app-Header__navigation">
+                        <ul class="app-Nav" style="text-align: center;margin-top:6px;">
+
+
+                            <li class="app-Nav__item ">
+                                <a class="app-Nav__link " href="{{ route('entreprise') }}">Entreprises</a>
+                            </li>
+
+
+                            <li class="app-Nav__item app-Nav__item--offers">
+                                <a class="app-Nav__link " href="{{ route('offre') }}">Offres</a>
+                            </li>
+
+                            <li class="app-Nav__item app-Nav__item--jobRoles">
+                                <a class="app-Nav__link " href="{{ route('blog') }}">Blogs</a>
+                            </li>
+
+                            <li class="app-Nav__item app-Nav__item--advices">
+                                <a class="app-Nav__link " href="{{ route('conseil') }}">Conseils</a>
+                            </li>
+
+                            <li class="app-Nav__item app-Nav__item--events">
+                                <a class="app-Nav__link " href="{{ route('even') }}">Événements</a>
+                            </li>
+
+                            <li class="app-Nav__item app-Nav__item--events">
+                                <a class="app-Nav__link " href="{{ route('propos') }}">A Propos</a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- deuxieme navbar avec onglet connection -->
+                <nav class="app-Header__dropdownMenu">
+                    <div class="app-Header__dropdownMenuWrapper">
+                        <ul class="hdr-DropdownMenu">
+                            <li class="hdr-DropdownMenu-item hdr-DropdownMenu-item--user " tabindex="0">
+                                <button class="hdr-DropdownMenu-link" aria-label="Mon compte"
+                                    data-icon="expandMore|right">
+                                    <span class="hdr-DropdownMenu-linkIcon"><svg viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg" class="jds-Icon jds-Icon--medium">
+                                            <path
+                                                d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Z" />
+                                            <path
+                                                d="M12 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-4 2a4 4 0 1 1 8 0 4 4 0 0 1-8 0ZM5.898 18.615A8.965 8.965 0 0 0 12 21a8.965 8.965 0 0 0 6.102-2.385c-.443-.34-1.05-.667-1.817-.939C15.1 17.256 13.62 17 12 17s-3.1.256-4.285.676c-.767.272-1.374.599-1.817.94Zm1.15-2.824C8.47 15.287 10.178 15 12 15c1.82 0 3.528.287 4.953.79 1.403.498 2.625 1.241 3.354 2.225a1 1 0 0 1-.053 1.256A10.976 10.976 0 0 1 12 23c-3.288 0-6.24-1.444-8.254-3.729a1 1 0 0 1-.053-1.256c.729-.984 1.951-1.727 3.354-2.224Z" />
+                                        </svg>
+                                    </span>
+                                    <span class="hdr-DropdownMenu-linkLabel hdr-DropdownMenu-linkLabel--hidden">Mon
+                                        compte</span>
+                                </button>
+                                <ul class="hdr-DropdownMenu-submenu">
+                                    <li class="hdr-DropdownMenu-submenuItem">
+                                        <a class="hdr-DropdownMenu-submenuLink button-connexion signin"
+                                            href="{{ route('login') }}">
+                                            <div class="hdr-DropdownMenu-submenuLinkIcon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
+                                                    height="26">
+                                                    <g fill="none" fill-rule="evenodd" class="u-stroke-color"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path
+                                                            d="M14.752 16.252l3.576-3.564-.42-2.928h3.336l-.42-2.916 2.928.42L25 6.004l-.42-4.584L19.996 1 9.748 11.248l-3.324-.852L1 15.82l1.872 7.296L10.18 25l5.424-5.424zM23.105 1l-12 12" />
+                                                        <path
+                                                            d="M8.158 21.211l-2.532-.837-.837-2.532 1.685-1.684 3.368 3.368z" />
+                                                    </g>
+                                                </svg>
+
+                                            </div>
+                                            <dl class="hdr-DropdownMenu-linkTextWrapper">
+                                                <dt class="hdr-DropdownMenu-linkTitle">
+                                                    Connexion
+                                                </dt>
+                                                <dd class="hdr-DropdownMenu-linkText">
+                                                    Découvrez les nouveaux contenus publiés depuis votre dernière
+                                                    connexion.
+                                                </dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                    <li class="hdr-DropdownMenu-submenuItem">
+                                        <a class="hdr-DropdownMenu-submenuLink signup"
+                                            href="{{ route('register') }}">
+                                            <div class="hdr-DropdownMenu-submenuLinkIcon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24">
+                                                    <g fill="none" fill-rule="evenodd" class="u-stroke-color"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path
+                                                            d="M23.5 20.75l-4 2.25-4-2.25v-4.5l4-2.25 4 2.25zM19.5 16.5v4M21.5 18.5h-4M5.63 1.81L9 3.5h4.5" />
+                                                        <path
+                                                            d="M13.5 8.25L9 10 4.5 8.25v-6L9 .5l4.5 1.75zM7.5 6v-.5M10.5 6v-.5M15.79 13.52l-.29-1.02L9 11l-6.5 1.5-2 7h13" />
+                                                        <path d="M11.45 11.57L9 15.5l-2.45-3.93" />
+                                                    </g>
+                                                </svg>
+
+                                            </div>
+                                            <dl class="hdr-DropdownMenu-linkTextWrapper">
+                                                <dt class="hdr-DropdownMenu-linkTitle">
+                                                    Inscription
+                                                </dt>
+                                                <dd class="hdr-DropdownMenu-linkText">
+                                                    Postulez aux offres et participez aux événements.
+                                                </dd>
+                                            </dl>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="app-Header__logoWrapper">
+                        <a aria-label="Accueil" data-testid="headerHomeLink" href="./index.html">
+                            <div class="app-Brand app-Brand--header">
+                                <img style="text-align: center;border:solid 1px transparent;border-radius:25px;padding:8px ;height:80px;width:150px;margin-right:-20px"
+                                    src="{{ URL::asset('front-hackathon/vue/assets/part-prog/auf.jpeg') }}"
+                                    alt="Logo de l'application" class="app-Header__logo" />
+                            </div>
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- logo auf -->
+                <div class="app-Header__logoWrapper">
+                    <a aria-label="Accueil" data-testid="headerHomeLink" href="./index.html">
+                        <div class="app-Brand app-Brand--header">
+                            <img style="text-align: center;border:solid 1px transparent;border-radius:25px;padding:10px ;height:80px;width:150px"
+                                src="{{ URL::asset('front-hackathon/vue/assets/part-prog/oif_logo.png') }}"
+                                alt="Logo de l'application" class="app-Header__logo" />
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </header>
+
+
+        <main>
+
+
+            <!-- 1ere session -->
+            <section class="hp-Layout__section hp-Hero">
+                <div class="hp-Layout__sectionWrapper hp-Hero__section hp-Hero__section--leftText">
+                    <div class="hp-Hero__content">
+                        <div class="hp-Layout__titleWrapper">
+                            <h1
+                                class="jds-Text jds-Text--subhead jds-Text--weight-bold jds-Text--resetSpacing hp-Hero__subtitle">
+                                D'CLICK_PRO, une nouvelle façon de trouver votre voie.
+                            </h1>
+                            <p class="jds-Text jds-Text--resetSpacing jds-Text--headingBig jds-Text--weight-extra-bold hp-Hero__title"
+                                data-spacer="bottom-300">
+                                Plus de 250 Jeunes Formées au Numérique, du stage au premier emploi
+                            </p>
+                        </div>
+                        <div data-spacer="top-600">
+                            <a href="./offres/offre.html" class="jds-Button">
+                                <!-- Trouver un emploi -->Acceder au Offres
                             </a>
                         </div>
                     </div>
+                </div>
+                <div class="hp-Layout__sectionWrapper hp-Layout__sectionWrapper--small hp-Hero__section hp-Hero__section--small hp-Hero__section--cover"
+                    style="background-image: url('https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/hero-973739a23885ffa7f578b1e717c0fdedee6beb4d57dde969337864116d110328.jpg');">
+                </div>
+            </section>
 
-                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+
+            <div class="hp-Layout__groupSection">
+                <style>
+                    /* Images can't be used in SCSS files */
+                    @media (min-width: 1440px) {
+                        .hp-Explore__bgImage {
+                            background-image: url('https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-extra@2x-7f16181a64daedaaeb9d4618d04f3af348f31b9196af946b41402a0b9610188b.jpg');
+                        }
+                    }
+                </style>
+
+
+                <!-- 2em session -->
+                <section class="hp-Layout__section hp-Explore">
+                    <div class="hp-Layout__sectionWrapper hp-Layout__sectionWrapper--withImage hp-Explore__bgImage">
+                        <picture class="hp-Layout__image hp-Explore__imageWrapper">
+                            <source media="(max-width: 479px)"
+                                srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-small-c1a602083520c9a45f345f2734a97ba78f2d53af30eda3aa175cdd2efd50dfd2.jpg, 
+            https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-small@2x-f372ffcd71b12c1c97f9511fd46436d408378216e234b34da9496ccf54b7b0a0.jpg 2x">
+                            <source media="(max-width: 767px)"
+                                srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-medium-342713c50459d4a1394e56e70d358af936775d6dd11423d5472402bcf149a90a.jpg, 
+            https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-medium@2x-5dda5f3a6ea011264dc9ffcb0f713255fec081854670764d2cca2f20753c74e7.jpg 2x">
+                            <source media="(max-width: 1024px)"
+                                srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-large-58c74efb4be3eff6c3faa8a6e75f721afd4ab14d51b3a7bf0d9f135c53a08e44.jpg, 
+            https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-large@2x-aab59105ddbc9c64d2b993b3dc7c5ab960d630bb770b933e8122a5edc5bddfa0.jpg 2x">
+                            <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/explore-extra-e2a8b3a13a4ab981429666e41d1439bf785d8e43e7969f1f9fc4d76643419188.jpg"
+                                alt="" class="hp-Explore__image" />
+                        </picture>
                     </div>
+                    <div
+                        class="hp-Layout__sectionWrapper hp-Layout__sectionWrapper--small hp-Layout__sectionWrapper--right">
+                        <div class="hp-Layout__textWrapper hp-Layout__textWrapper--right">
+                            <header class="hp-Layout__titleWrapper">
+                                <h2 class="jds-Text jds-Text--heading jds-Text--resetSpacing jds-Text--weight-bold jds-Text--white"
+                                    data-spacer="bottom-400">
+                                    Trouvez votre voie
+                                </h2>
+                                <p class="jds-Text jds-Text--resetSpacing jds-Text--label jds-Text--mainColor hp-Layout__subtitle"
+                                    data-spacer="bottom-150">
+                                    Explorer
+                                </p>
+                            </header>
+                            <p class="jds-Text jds-Text--normal jds-Text--resetSpacing jds-Text--white">Votre parcours
+                                est unique, comme vous. Que ce soit pour découvrir un métier auquel vous n’auriez jamais
+                                pensé, ou trouver l’entreprise où vous épanouir, on vous accompagne. Notre objectif ?
+                                Que vos choix professionnels soient en accord avec vos valeurs.</p>
+                            <div class="" data-spacer="top-400">
+                                <a href="blogs/blog.html" class="jds-Button jds-Button--minor" title="Métiers"
+                                    data-spacer="right-200">
+                                    Blogs
+                                </a>
+                                <a href="entreprises/entreprise.html" class="jds-Button jds-Button--minor"
+                                    title="Entreprises">
+                                    Entreprises
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3eme session -->
+                <section class="hp-Layout__section hp-Deepen">
+                    <div class="hp-Layout__sectionWrapper hp-Layout__sectionWrapper--left">
+                        <div class="hp-Layout__textWrapper">
+                            <header class="hp-Layout__titleWrapper">
+                                <h2 class="jds-Text jds-Text--heading jds-Text--resetSpacing jds-Text--weight-bold jds-Text--white"
+                                    data-spacer="bottom-400">
+                                    Préparez-vous
+                                </h2>
+                                <p class="jds-Text jds-Text--resetSpacing jds-Text--label jds-Text--mainColor hp-Layout__subtitle"
+                                    data-spacer="bottom-150">
+                                    approfondir
+                                </p>
+                            </header>
+                            <p class="jds-Text jds-Text--normal jds-Text--resetSpacing jds-Text--white">Entrer sur le
+                                marché du travail, c’est parfois un saut dans l’inconnu. Alors rien de mieux donc que
+                                d’échanger avec des professionnels lors de nos évènements physiques et virtuels pour
+                                élargir vos horizons et lever les doutes. Ajoutez-y nos conseils pratiques spécialement
+                                conçus pour vous, et vous voilà prêts à vous lancer.</p>
+                            <div data-spacer="top-400">
+                                <a href="events/events.html" class="jds-Button jds-Button--minor" title="Événements"
+                                    data-spacer="right-200">
+                                    Événements
+                                </a>
+                                <a href="conseil/conseil.html" class="jds-Button jds-Button--minor" title="Conseils">
+                                    Conseils
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hp-Layout__sectionWrapper hp-Layout__sectionWrapper--withImage">
+                        <img class="hp-Layout__image hp-Deepen__image"
+                            src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/deepen-562cdf902798680a102110ac041eacbe9e5783042d9eb78798cb8ed363459add.jpg"
+                            srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/deepen@2x-80f4a5c53e3229f13e582e733e0e5acbadedaba32d4582554a4101ae5b015b67.jpg"
+                            alt="" />
+                    </div>
+                </section>
+
+                <!-- 4em session -->
+                <section class="hp-Layout__section hp-Apply">
+                    <div class="hp-Apply__wrapper">
+                        <div
+                            class="hp-Layout__sectionWrapper hp-Layout__sectionWrapper--withImage hp-Apply__sectionWithImage">
+                            <picture>
+                                <source media="(max-width: 480px)"
+                                    srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-small-d4e9594d729a6c499640b801246e4ec57dd1cf65fcfa1727bf9581d4f65ef3eb.jpg, 
+            https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-small@2x-3ac63da5ae768dcde80222d1669b3c62bb44fe0a2b7b5194b24507f1e2b58a50.jpg 2x">
+                                <source media="(max-width: 768px)"
+                                    srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-medium-dbf8a70b105119d216e1ab5df2a662f691b046469baab95fde43263b25a97514.jpg, 
+            https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-medium@2x-590a6ae64ebf6cf515c1e99a1c05d4ca13e837f1ab405644de3f3e2f821b9bb7.jpg 2x">
+                                <source media="(max-width: 1024px)"
+                                    srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-large-e4036fc8e227baec43d6217872d820ed062f63c0b690805ebb4a1aec9f2e88ef.jpg, 
+            https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-large@2x-3770e8e858ee74bb25ec7eb7bd1ab13ef7cb69dc6efce06e52cab9db2ff50395.jpg 2x">
+                                <img class="hp-Layout__image hp-Apply__image"
+                                    src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/apply-large-e4036fc8e227baec43d6217872d820ed062f63c0b690805ebb4a1aec9f2e88ef.jpg"
+                                    alt="" />
+                            </picture>
+                        </div>
+                        <div class="hp-Layout__sectionWrapper hp-Apply__section">
+                            <div class="hp-Apply__sectionWrapper">
+                                <div class="hp-Layout__textWrapper">
+                                    <header class="hp-Layout__titleWrapper">
+                                        <h2 class="jds-Text jds-Text--heading jds-Text--resetSpacing jds-Text--weight-bold"
+                                            data-spacer="bottom-400">
+                                            Lancez-vous
+                                        </h2>
+                                        <p class="jds-Text jds-Text--resetSpacing jds-Text--label jds-Text--mainColor"
+                                            data-spacer="bottom-150">
+                                            Postuler
+                                        </p>
+                                    </header>
+                                    <p class="jds-Text jds-Text--normal jds-Text--resetSpacing">Un petit pas, puis un
+                                        deuxième, puis vous voilà sur une voie, la vôtre. Ici, toutes les offres de
+                                        stage et emploi sont adaptées aux profils étudiants et jeunes diplômés. Et comme
+                                        il n’y pas qu’une seule façon de trouver sa voie, les recruteurs aussi peuvent
+                                        vous contacter directement pour vous proposer des offres pertinentes. Vous avez
+                                        du talent : faites-vous confiance.</p>
+                                    <div data-spacer="top-400">
+                                        <a href="offre/offre.html" class="jds-Button jds-Button--minor"
+                                            title="Stages &amp; Emploi" data-spacer="right-200">
+                                            Stages &amp; Emploi
+                                        </a>
+                                        <a href="entreprises/entreprise.html" class="jds-Button jds-Button--minor"
+                                            title="Entreprises">
+                                            Entreprises
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- les partenaires de l'oif -->
+            <section class="hp-Partners">
+                <h2 class="jds-Text jds-Text--subhead jds-Text--weight-extra-bold" data-spacer="bottom-800">
+                    Notre plateforme est la meilleurs ,avec un large reseau de partenaires</h2>
+                <ul class="hp-Partners__list">
+                    <li class="hp-Partners__item">
+                        <a href="" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="LVMH" title="LVMH"
+                                src="{{ URL::asset('front-hackathon/vue/assets/part-prog/anpe logo.jpg') }}" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/loreal" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="L&#39;Oréal" title="L&#39;Oréal"
+                                src="{{ URL::asset('front-hackathon/vue/assets/part-prog/Wakatlab-True logo.jpeg ') }}" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/chanel" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="CHANEL" title="CHANEL"
+                                src="/vue/assets/part-prog/Université Nazi Boni.jpeg" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/danone" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="DANONE" title="DANONE"
+                                src="/vue/assets/part-prog/oif_logo.png" />
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/ubisoft" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="Ubisoft" title="Ubisoft"
+                                src="/vue/assets/part-prog/NB-Z kdg.jpg" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/airbus" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="Airbus" title="Airbus"
+                                src="/vue/assets/part-prog/auf.jpeg" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/disneyland-paris" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="Disneyland Paris" title="Disneyland Paris"
+                                src="/vue/assets/prof/Jo'Fe digital.jpeg" />
+                        </a>
+                    </li>
+
+
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/bnpparibas-international" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="BNP Paribas" title="BNP Paribas"
+                                src="/vue/assets/part-prog/DIGITALES.jpeg" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/groupe-canal-plus" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="CANAL+ Group" title="CANAL+ Group"
+                                src="/vue/assets/prof/Cidoc.png" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/kpmg" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="KPMG France" title="KPMG France"
+                                src="/vue/assets/part-prog/incubuo.png" />
+                        </a>
+                    </li>
+
+                    <li class="hp-Partners__item">
+                        <a href="/fr/companies/publicis-groupe" class="hp-Partners__logoContainer">
+                            <img class="hp-Partners__logo" alt="Publicis France" title="Publicis France"
+                                src="/vue/assets/prof/Yulcom Technologies.jpeg" />
+                        </a>
+                    </li>
+
+                </ul>
+            </section>
+
+
+
+
+            <!-- avant footer -->
+            <div class="hp-Corporate">
+                <div class="hp-Corporate__container">
+                    <ul class="hp-Corporate__list">
+                        <li class="hp-Corporate__item">
+                            <a href="recruteur/recrut.html" class="hp-Corporate__link" title="Recruteur ?">
+                                <article class="jds-Paper jds-Paper--noSpacing jds-Paper--radius hp-Corporate__card">
+                                    <div class="hp-Corporate__cardShape">
+                                        <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/corporate/company-90d0f1e5c758e22aa7c9fba0fe126c44957d001640bb535c9b827b9d62361446.jpg"
+                                            srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/corporate/company@2x-f73622ba4932908290c44866cf76ef9c7b607113834bd370f787b5d55305c96b.jpg 2x"
+                                            class="hp-Corporate__cardShapeChild" alt="" />
+                                    </div>
+                                    <div class="hp-Corporate__cardContent">
+                                        <h2 class="hp-Corporate__cardTitle"> Recruteur ? </h2>
+                                        <p class="jds-Text jds-Text--small jds-Text--resetSpacing jds-Text--grey">
+                                            Recrutez dès maintenant les meilleurs jeunes talents!!!
+                                        </p>
+                                        <div data-spacer="top-300">
+                                            <span class="jds-Link jds-Link--arrow hp-Corporate__cardLink">
+                                                <span class="jds-Link__wrapper">
+                                                    <span>En savoir plus</span>
+                                                    <span class="jds-Link__hoverIcon">
+                                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                            class="jds-Icon jds-Icon--small ">
+                                                            <path
+                                                                d="M14.7071 5.29289C14.3166 4.90237 13.6834 4.90237 13.2929 5.29289C12.9024 5.68342 12.9024 6.31658 13.2929 6.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L13.2929 17.2929C12.9024 17.6834 12.9024 18.3166 13.2929 18.7071C13.6834 19.0976 14.3166 19.0976 14.7071 18.7071L20.7071 12.7071C21.0976 12.3166 21.0976 11.6834 20.7071 11.2929L14.7071 5.29289Z" />
+                                                        </svg>
+
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </a>
+                        </li>
+                        <li class="hp-Corporate__item">
+                            <a href="apprenants/apprenant.html" class="hp-Corporate__link" title="Etablissement ?">
+                                <article class="jds-Paper jds-Paper--noSpacing jds-Paper--radius hp-Corporate__card">
+                                    <div class="hp-Corporate__cardShape">
+                                        <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/corporate/school-d68009b397def9c57a0ec5ac5aeb35a8567e64c53a84a6182dad52a9714e86a7.jpg"
+                                            srcset="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/homepage/corporate/school@2x-ec833ade001c943e78876de49a4eee1d53bfeb514af67d73d0cad8b49408a913.jpg 2x"
+                                            class="hp-Corporate__cardShapeChild" alt="" />
+                                    </div>
+                                    <div class="hp-Corporate__cardContent">
+                                        <h2 class="hp-Corporate__cardTitle"> Apprenants </h2>
+                                        <p class="jds-Text jds-Text--small jds-Text--resetSpacing jds-Text--grey">
+                                            Créez des relations privilégiées avec
+                                            votre communauté d&#39;apprenants stagiaire au programme D'CLICK/OIF
+                                        </p>
+                                        <div data-spacer="top-300">
+                                            <span class="jds-Link jds-Link--arrow hp-Corporate__cardLink">
+                                                <span class="jds-Link__wrapper">
+                                                    <span>En savoir plus</span>
+                                                    <span class="jds-Link__hoverIcon">
+                                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                            class="jds-Icon jds-Icon--small ">
+                                                            <path
+                                                                d="M14.7071 5.29289C14.3166 4.90237 13.6834 4.90237 13.2929 5.29289C12.9024 5.68342 12.9024 6.31658 13.2929 6.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L13.2929 17.2929C12.9024 17.6834 12.9024 18.3166 13.2929 18.7071C13.6834 19.0976 14.3166 19.0976 14.7071 18.7071L20.7071 12.7071C21.0976 12.3166 21.0976 11.6834 20.7071 11.2929L14.7071 5.29289Z" />
+                                                        </svg>
+
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </body>
+
+
+        </main>
+
+
+        <footer class="app-Footer">
+
+            <div class="app-Footer__container">
+
+                <div class="app-Footer__brand">
+                    <!-- le logo partie footer -->
+                    <!-- logo auf -->
+                    <div class="app-Header__logoWrapper">
+                        <a aria-label="Accueil" data-testid="headerHomeLink" href="../index.html">
+                            <div class="app-Brand app-Brand--header">
+                                <img style="text-align: center;border:solid 1px transparent;border-radius:25px;padding:12px ;height:100px;width:250px"
+                                    src="/vue/assets/part-prog/oif_logo.png" alt="Logo de l'application"
+                                    class="app-Header__logo" />
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- les reseau sociale partie footer -->
+                    <div class="app-Footer__brandContainer">
+                        <ul class="app-Footer__social">
+                            <li class="app-Footer__socialItem">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://www.facebook.com/jobteaser">
+                                    <img alt="Facebook" class="app-Footer__socialIcon"
+                                        src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/logos/facebook-white-644d0a8502d6a5ee7e1e98ad605eb536a001a464c32a415d3d4e140bb494eda1.svg" />
+                                </a>
+                            </li>
+                            <li class="app-Footer__socialItem">
+                                <a target="_blank" rel="noopener noreferrer"
+                                    href="https://www.linkedin.com/company/jobteaser/">
+                                    <img alt="LinkedIn" class="app-Footer__socialIcon"
+                                        src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/logos/linkedin-white-ec8b1d9b43013a9fa945712e5566e87f34547a467da2c796f561ab801871e66e.svg" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2eme partie footer -->
+                <div class="app-Footer__menu">
+
+                    <div class="app-Footer__menuItem" data-show="desktop-block">
+                        <p class="app-Footer__title">
+                            Étudiants
+                        </p>
+                        <ul class="app-Footer__menuList">
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/profiles/new">S&#39;inscrire</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/job-offers">Chercher une offre</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/companies">Découvrir les entreprises</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/events">Evénements recrutement</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/advices">Conseils recrutement</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/info/alternance">Offres</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/info/bts-bac2-bac3-alternance-emploi">Offres
+                                    pour
+                                    Bac+2, Bac+3, BTS</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="app-Footer__menuItem" data-show="desktop-block">
+                        <p class="app-Footer__title">
+                            Écoles &amp; Universités
+                        </p>
+                        <ul class="app-Footer__menuList">
+                            <li class="app-Footer__menuListItem">
+                                <a target="_blank" class="app-Footer__link"
+                                    href="https://www.jobteaser.com/fr/corporate/services-carrieres">Notre offre Career
+                                    Center</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a target="_blank" class="app-Footer__link"
+                                    href="https://www.jobteaser.com/fr/corporate/notre-reseau-d-ecoles-et-d-universites">Nos
+                                    établissements partenaires</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="app-Footer__menuItem" data-show="desktop-block">
+                        <p class="app-Footer__title">
+                            Entreprises
+                        </p>
+                        <ul class="app-Footer__menuList">
+                            <li class="app-Footer__menuListItem">
+                                <a target="_blank" class="app-Footer__link"
+                                    href="https://www.jobteaser.com/fr/corporate/recruteurs">Notre offre Entreprise</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="app-Footer__menuItem">
+                        <p class="app-Footer__title">D'CLICK_PRO</p>
+                        <ul class="app-Footer__menuList">
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/companies/jobteaser/job-offers">Nous
+                                    rejoindre</a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a href="https://www.jobteaser.com/fr/corporate/a-propos" class="app-Footer__link"
+                                    title="À propos">
+                                    À propos
+                                </a>
+                            </li>
+                            <li class="app-Footer__menuListItem">
+                                <a class="app-Footer__link" href="/fr/companies/jobteaser/teams">Rencontrer notre
+                                    équipe</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- bas du footer les CGV -->
+                <div class="app-Footer__legal">
+
+                    <ul class="app-Footer__legalLinks">
+
+                        <li class="app-Footer__legalItem">
+                            <a class="app-Footer__link app-Footer__link--small" href="/fr/about/legal-notice">Mentions
+                                légales</a>
+                        </li>
+
+                        <li class="app-Footer__legalItem">
+                            <a class="app-Footer__link app-Footer__link--small" href="#open-cookie-banner">Cookies</a>
+                        </li>
+
+                        <li class="app-Footer__legalItem">
+                            <a class="app-Footer__link app-Footer__link--small"
+                                href="/fr/about/privacy-policy">Politique de confidentialité</a>
+                        </li>
+
+                        <li class="app-Footer__legalItem">
+                            <a class="app-Footer__link app-Footer__link--small" target="_blank"
+                                href="https://security.jobteaser.com">Sécurité</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="app-Footer__copyright">
+                        Copyright &copy; D'CLICK_PRO 20023-2024 From DevStudios - Site d'orientation professionnelle
+                    </div>
+
+                </div>
+
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+
+
+</body>
+
 </html>

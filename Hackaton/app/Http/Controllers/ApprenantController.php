@@ -24,6 +24,11 @@ class ApprenantController extends Controller
 
         return view('apprenant.new');
     }
+    public function index()
+    {
+
+        return view('apprenant');
+    }
     public function create(StoreapprenantRequest $request)
     {
 

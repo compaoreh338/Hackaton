@@ -10,6 +10,10 @@ use Illuminate\View\View;
 
 class EntrepriseController extends Controller
 {
+    public function index()
+    {
+        return view('entreprise');
+    }
     public function list(Request $request): View
     {
 
